@@ -15,8 +15,9 @@ router.post('/add', function(req, res, next) {
   console.warn('add', firstName, lastName, phone);
 
   var persons = require('../public/data/person.json');
-  
+  const id = new Date().getTime()
   persons.push({
+    id,
     firstName,
     lastName,
     phone
@@ -31,6 +32,7 @@ router.post('/add', function(req, res, next) {
 
   res.json({
     success: true,
+    id,
     message: 'DONE!'
   });
 });
