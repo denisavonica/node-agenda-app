@@ -1,22 +1,24 @@
 [
   {
-    "firstName": "Nicolae",
-    "lastName": "Matei",
-    "phone": "0834589834"
-  },
-  {
-    "firstName": "Nico",
-    "lastName": "Mat",
-    "phone": "0834589812"
-  },
-  {
+    "id": 3,
     "firstName": "Mihai",
     "lastName": "Pop",
     "phone": "0834589823"
   },
   {
+    "id": 4,
     "firstName": "denisa",
     "lastName": "vonica",
     "phone": "754698968"
+  },
+  {
+    "firstName": "nou",
+    "lastName": "nout",
+    "phone": "1234"
+  },
+  {
+    "firstName": "inca",
+    "lastName": "unul",
+    "phone": "1234"
   }
 ]

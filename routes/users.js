@@ -13,6 +13,7 @@ router.post('/add', function(req, res, next) {
   var lastName = req.body.lastName;
   var phone = req.body.phone;
   console.warn('add', firstName, lastName, phone);
+
   var persons = require('../public/data/person.json');
   
   persons.push({
@@ -22,12 +23,34 @@ router.post('/add', function(req, res, next) {
   });
   
   var str = JSON.stringify(persons, null, 2);
+
+  console.log('str', str);
+
   fs.writeFileSync('./public/data/person.json', str);
 
-  // TODO save this data in persons.json
+
   res.json({
     success: true,
-    message: 'TODO'
+    message: 'DONE!'
+  });
+});
+router.delete('/delete', function(req, res, next) {
+  var id = req.body.id;
+  console.warn('delete',id);
+
+  var persons = require('../public/data/person.json');
+  
+  var remainingPersons=persons.filter(function(person){
+    return person.id != id;
+  })
+  
+  var str = JSON.stringify(remainingPersons, null, 2);
+  fs.writeFileSync('./public/data/person.json', str);
+
+
+  res.json({
+    success: true,
+    message: 'DONE!'
   });
 });
 
