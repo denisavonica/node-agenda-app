@@ -132,6 +132,18 @@ const editPerson = function(id){
     editPersonId=id;
 
 }
+//if one parameter can skip pharantesis(value)
+const search = value =>{
+    value = value.toLowerCase().trim();
+    const filtered = allPersons.filter(person => {
+       return person.firstName.toLowerCase().includes(value) || 
+       person.lastName.toLowerCase().includes(value) ||
+       person.phone.toLowerCase().includes(value)
+
+   });
+   display(filtered);
+};
+
 function submitEditPerson(id, firstName, lastName, phone) {
     var body = null;
     const method =  API_METHOD.UPDATE;
@@ -184,7 +196,12 @@ function initEvents(){
             console.info('edit',id);
             editPerson(id);
         }
+
     });
+    const searchInput =document.getElementById('search');
+    searchInput.addEventListener('input',(e)=>{
+        search(e.target.value);
+    })
 }
 
 initEvents();
